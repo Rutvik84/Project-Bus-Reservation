@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Bus_Reservation",
+    "\\Bus_Reservation\\Controllers",
+    "\\Bus_Reservation\\Models",
+    "\\Bus_Reservation\\Properties"
+  ],
+  "SelectedNode": "\\Bus_Reservation\\Properties\\launchSettings.json",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,50 @@
+<div class="col-md-5 offset-md-4 card card-body mt-2">
+    <form #bookTicketForm="ngForm" (ngSubmit)="bookTicket(bookTicketForm)">
+        <h1 class="bg-info text-light card" align="center">Book Ticket</h1>
+        <br>
+        <div class="form-group" *ngFor="let td of this.currentTrip">
+            <label for="busTripId" class="text-gray" >Bus Trip Id: {{td.tripId}} 
+            </label>
+            <br>
+            <label for="busTripId" class="text-gray" >Starting Point: {{td.source}} 
+            </label>
+            <br>
+            <label for="busTripId" class="text-gray" >Destination: {{td.destination}} 
+            </label>
+            <br>
+            <!-- <label for="busTripId" class="text-gray" >Availability: {{this.alreadybooked}} 
+            </label>
+            <br> -->
+            <label for="busTripId" class="text-gray" >Cost per Seat: {{td.cost}} 
+            </label>
+
+        </div>
+        <div class="form-group">
+            <label for="numOfSeats" class="text-gray">No of Seats to book
+            </label>
+            <input type="text" #numOfSeats="ngModel" ngModel name="numOfSeats" id="numOfSeats" class="form-control"
+                required placeholder="Enter number of seats">
+            <div *ngIf="numOfSeats.touched && numOfSeats.invalid">
+                <p class="text-danger"> This field is required</p>
+            </div>
+        </div>
+        <br>
+<div class="col-md-10 offset-md-1 card card-body mt-2">
+    <h1 class=" text-dark card" align="center">Seats</h1>
+    <br>
+    <div *ngFor="let item of this.seats | keyvalue">
+        <!-- {{item.key}}  {{item.value}}-->
+        <div *ngIf="!item.value">
+        <input type="checkbox" class="form-check-input-indeterminate"  ngModel name="{{item.key}}" value="{{item.value}}">  
+    </div>
+        <div *ngIf="item.value">
+        <input type="checkbox" class="btn btn-dark" ngModel name="{{item.key}}" value="{{item.value}}" checked disabled/>
+        </div>
+    </div>
+
+    <br>
+    <button type="submit" class="btn btn-primary float-center" [disabled]="bookTicketForm.invalid">Confirm</button>
+
+</div>
+</form>
+</div>

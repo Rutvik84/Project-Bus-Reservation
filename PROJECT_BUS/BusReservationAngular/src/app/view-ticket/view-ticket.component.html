@@ -1,0 +1,32 @@
+<div *ngIf="isUserLogin">
+<div class="col-md-10 offset-md-1 card card-body mt-3">
+    <table class="table table-bordered table-hover table-striped">
+        <thead style="background:rgb(137, 2, 2), font: 1em sans-serif">
+            <td>Passenger Name</td>
+            <td>Bus Name</td>
+            <td>Source</td>
+            <td>Destination</td>
+            <td>Bus Type</td>
+            <td>Departure Date</td>
+            <td>Arrival Date</td>
+            <td>Cost</td>
+            <td>Seats Number</td>
+            <td></td>
+        </thead>
+        
+        <tbody>
+            <tr *ngFor='let vd of this.service.viewseats' >
+                <td *ngIf="vd.userid===this.userid">{{vd.firstname}} {{vd.lastname}}</td>
+                <td *ngIf="vd.userid===this.userid">{{vd.busname}}</td>
+                <td *ngIf="vd.userid===this.userid">{{vd.source}}</td>
+                <td *ngIf="vd.userid===this.userid">{{vd.destination}}</td>
+                <td *ngIf="vd.userid===this.userid">{{vd.busType}}</td>
+                <td *ngIf="vd.userid===this.userid">{{vd.fromdate | date:'yyyy-MM-dd'}}</td>
+                <td *ngIf="vd.userid===this.userid">{{vd.todate | date:'yyyy-MM-dd'}}</td>
+                <td *ngIf="vd.userid===this.userid">{{vd.cost}}</td>
+                <td *ngIf="vd.userid===this.userid" (onclick)="deleteTicket">{{vd.seatNumber}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>

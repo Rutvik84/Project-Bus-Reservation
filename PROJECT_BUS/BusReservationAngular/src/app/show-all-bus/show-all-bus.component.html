@@ -1,0 +1,28 @@
+<app-edit-bus></app-edit-bus>
+
+<div class="col-md-10 offset-md-1 card card-body mt-3">
+    <table class="table table-bordered table-hover table-striped">
+        <thead style="background:rgb(245, 243, 243)">
+            <td>Bus ID</td>
+            <td>Bus Name</td>
+            <td>Bus Type</td>
+            <td>Total Seats</td>
+            
+        </thead>
+        <tbody>
+            <tr *ngFor='let bus of buses'>
+                <td (click)="populatebus(bus)">{{bus.busId}}</td>
+                <td (click)="populatebus(bus)">{{bus.busName}}</td>
+                <td (click)="populatebus(bus)">{{bus.busType}}</td>
+                <td (click)="populatebus(bus)">{{bus.totalSeats}}</td>
+                <!-- <td (click)="onDelete(bus.busId)">Remove </td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<br>
+<button class="btn btn-primary" (click)="transfer()">Back </button>
+  <br>
+  <br>

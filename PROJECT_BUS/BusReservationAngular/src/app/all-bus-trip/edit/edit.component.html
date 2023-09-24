@@ -1,0 +1,101 @@
+
+<style>
+ 
+</style>
+
+
+<input #checkbox1 type="checkbox" name="toggle" id="toggle">
+<label for="toggle"></label>
+<div class="container" >
+</div>
+<div class="formAdd">
+    <form autocomplete="off" #myForm="ngForm" (ngSubmit)="myForm.form.valid && editBusTrip(myForm)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <input type="hidden" name="tripId" #tripId="ngModel" [(ngModel)]="service.bustrip.tripId">
+                        <label for="busname" class="label float-left">Bus Name</label>
+                        <div *ngIf="busId.touched && busId.value===0" class="float-right">
+                            <p class="text-danger">Required</p>
+                        </div>
+                        
+                        <select name="busId" class="form-control" #busId="ngModel" [(ngModel)]="service.bustrip.busname" required>
+                            <option value="0">Please Select</option>
+                            <option  *ngFor="let bus of service.busData" [ngValue]="bus.busId">{{ bus.busName }}</option>
+                        </select>
+                    
+                </div>
+                <div class="col-md-3">
+                        <label for="bus" class="label float-left">Bus Type</label>
+                        <div *ngIf="busId.touched && busId.value===0" class="float-right">
+                            <p class="text-danger">Required</p>
+                        </div>
+                        
+                        <select name="busId" class="form-control" #busId="ngModel" [(ngModel)]="service.bustrip.busType" required>
+                            <option value="0">Please Select</option>
+                            <option  *ngFor="let bus of service.busData" [ngValue]="bus.busId">{{ bus.busType }}</option>
+                        </select>
+                </div>  
+                    
+                <div class="col-md-3">
+                        <label for="source" class="float-left"> Source</label>
+                        <div *ngIf="source.invalid && (source.touched || source.dirty)" class="float-right">
+                            <p class="text-danger">Required</p>
+                        </div>
+                        <input type="text" name="source" class="form-control" placeholder="Enter Source" #source="ngModel" [(ngModel)]="service.bustrip.source" required>
+                </div>  
+                <div class="col-md-3">
+                    <label for="destination" class="float-left">Destination</label>
+                    <div *ngIf="destination.invalid && (destination.touched || destination.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="text" name="destination" class="form-control" placeholder="Enter Destination" #destination="ngModel" [(ngModel)]="service.bustrip.destination" required>
+                </div>
+            </div>
+            <div class="row">    
+                <div class="col-md-3">
+                    <label for="fromDatetime" class="float-left">Departure Date</label>
+                    <div *ngIf="fromDatetime.invalid && (fromDatetime.touched || fromDatetime.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="date" name="fromDatetime" class="form-control" placeholder="Enter Departure Date " #fromDatetime="ngModel" [(ngModel)]="service.bustrip.fromDatetime" required>
+                </div>
+ 
+                <div class="col-md-3">
+                    <label for="toDatetime" class="float-left">Arriving Date</label>
+                    <div *ngIf="toDatetime.invalid && (toDatetime.touched || toDatetime.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="date" name="toDatetime" class="form-control" placeholder="Enter Arrival Date " #toDatetime="ngModel" [(ngModel)]="service.bustrip.toDatetime" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="cost" class="float-left">Cost</label>
+                    <div *ngIf="cost.invalid && (cost.touched || cost.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="number" name="cost" class="form-control" placeholder="Enter Cost " #cost="ngModel" [(ngModel)]="service.bustrip.cost" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="availa" class="float-left">Availability</label>
+                    <div *ngIf="availableSeats.invalid && (availableSeats.touched || availableSeats.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="number" name="availableSeats" class="form-control" placeholder="Availability " #availableSeats="ngModel" [(ngModel)]="service.bustrip.availableSeats" required>
+                </div>
+            </div>
+ <br>
+ 
+            <div class="row">
+                <div class="col-md-8"></div>
+                <div class="col-md-2">
+                    <button type="submit" [disabled]="busId.value===0" class="btn btn-success btn-block" (onClick)="hideshowSlide()">Save</button>
+                </div>
+                <div class="col-md-2">
+                    <button type="reset" class="btn btn-danger btn-block">Cancel</button>
+                </div>
+            </div>
+ 
+ 
+        </div>
+    </form>    
+ </div>

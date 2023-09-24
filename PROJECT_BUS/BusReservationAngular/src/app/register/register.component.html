@@ -1,0 +1,97 @@
+<div class="col-md-5 offset-3 mt-2 card" style="background:rgb(229, 205, 205)">
+    <div class="card-body pl-10 pr-10">
+<form #registerUser="ngForm" (ngSubmit)="user(registerUser)">
+    <h1 class="h1 text-center">REGISTRATION FORM</h1>
+    <br>
+    <div class="form-group">
+        <label for="FirstName" class="text-gray">First Name</label>
+        <input type="text" #FirstName="ngModel" ngModel name="FirstName" id="FirstName" class="form-control" required placeholder="Enter User FirstName">
+        <div *ngIf="FirstName.touched && FirstName.invalid">
+            <p class="text-danger"> This field is required</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="LastName" class="text-gray">Last Name</label>
+        <input type="text" #LastName="ngModel" ngModel name="LastName" id="LastName" class="form-control" required placeholder="Enter User LastName">
+        <div *ngIf="LastName.touched && LastName.invalid">
+            <p class="text-danger"> This field is required</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Email" class="text-gray">Email</label>
+        <input type="email" #Email="ngModel" ngModel name="Email" id="Email" class="form-control"
+            required placeholder="Enter user email">  
+        <div *ngIf="Email.touched && Email.invalid">
+            <p class="text-danger"> This field is required</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Password" class="text-gray">Password </label>
+        <input type="password" #Password="ngModel" ngModel name="Password" id="Password"
+            class="form-control" required placeholder="Enter Password">
+        <div *ngIf="Password.touched && Password.invalid">
+            <p class="text-danger"> This field is required</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="ConfirmPassword" class="text-gray">Confirm Password </label>
+        <input type="password" #ConfirmPassword="ngModel" ngModel name="ConfirmPassword" id="ConfirmPassword"
+            class="form-control" required placeholder="ReEnter Password">
+        <div *ngIf="ConfirmPassword.touched && ConfirmPassword.invalid">
+            <p class="text-danger"> This field is required</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Age" class="text-gray">Age </label>
+        <input type="number" #Age="ngModel" ngModel name="Age" id="Age" class="form-control"
+            required placeholder="Enter Age">
+        <div *ngIf="Age.touched && Age.invalid">
+            <p class="text-danger"> This field is required</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Contact" class="text-gray">Contact Number </label>
+        <input type="text" #Contact="ngModel" ngModel name="Contact" id="Contact" class="form-control"
+            required placeholder="Enter Contact">
+        <div *ngIf="Contact.touched && Contact.invalid">
+            <p class="text-danger"> This field is required</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="dob" class="text-gray">Date of Birth </label>
+        <input type="date" #dob="ngModel" ngModel name="dob" id="dob" class="form-control"
+            required placeholder="Enter Contact">
+        <div *ngIf="dob.touched && dob.invalid">
+            <p class="text-danger"> This field is required</p>
+        </div>
+    </div>
+
+    <label for="Gender" class="text-gray">Gender </label><br>
+    <div class="form-check form-check-inline">
+        <input type="radio" #Gender="ngModel" ngModel name="Gender" id="Gender" class="form-check-input" value="male" required>Male
+    </div>
+    <div class="form-check form-check-inline">
+        <input type="radio" #Gender="ngModel" ngModel name="Gender" id="Gender" class="form-check-input" value="female" required>Female
+    </div>
+
+    <div class="form-group">
+        <label for="Address" class="text-gray">Address </label>
+        <textarea type="text" #Address="ngModel" ngModel name="Address" id="Address" class="form-control"
+            required placeholder="Enter Address"></textarea>
+        <div *ngIf="Address.touched && Address.invalid">
+            <p class="text-danger"> This field is required</p>
+        </div>
+    </div>
+
+    <br>
+    <button type="submit" class="btn btn-outline-info btn-block form-control" [disabled]="registerUser.invalid">Register </button>
+</form>
+</div>
+</div>

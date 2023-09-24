@@ -1,0 +1,65 @@
+<div class="card cd1">
+<div class="formAdd">
+    <form #bookbus="ngForm" (ngSubmit)="booking(bookbus)">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <label for="source" class="text-success">From</label>
+                <input type="text" #source="ngModel" ngModel name="source" id="source" class="form-control" required
+                placeholder="Enter Source">
+            </div>
+            <div class="col-md-3">
+                <label for="destination" class="text-success">Destination</label>
+                <input type="text" #destination="ngModel" ngModel name="destination" id="destination" class="form-control" required
+                placeholder="Enter Destination">
+            </div>
+            <div class="col-md-3">
+                <label for="fromDatetime" class="text-success">From</label>
+                <input type="date" #fromDatetime="ngModel" ngModel name="fromDatetime" id="fromDatetime" class="form-control" required
+                placeholder="Enter Date">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-8"></div>
+            <div class="co-md-2">
+                <button type="submit" class="btn btn-primary centre" [disabled]="bookbus.invalid">Search </button>
+            </div>
+
+        </div>
+    </form>
+</div>
+</div>
+
+<div>
+<div class="col-md-10 offset-md-1 card card-body mt-3">
+    <table class="table table-bordered table-hover table-striped">
+        <thead style="background:rgb(245, 243, 243)">
+            <td>Bus Name</td>
+            <td>Bus Type</td>
+            <td>Source</td>
+            <td>Destination</td>
+            <td>Active</td>
+            <td>Depdarture Date</td>
+            <td>Arrival Date</td>
+            <td>Cost</td>
+            <td>Available Seats</td>
+            <td>Booking Link</td>
+        </thead>
+        <tbody>
+            <tr *ngFor='let td of service.booktripdt'>
+                <td >{{td.busname}}</td>
+                <td >{{td.busType}}</td>
+                <td >{{td.source}}</td>
+                <td >{{td.destination}}</td>
+                <td >{{td.isActive}}</td>
+                <td >{{td.fromDatetime | date:'yyyy-MM-dd'}}</td>
+                <td >{{td.toDatetime | date:'yyyy-MM-dd'}}</td>
+                <td >{{td.cost}}</td>
+                <td >{{td.availableSeats}}</td>
+                <td><button type="submit" class="btn btn-primary" (click)="book(td.tripId)">Book</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>

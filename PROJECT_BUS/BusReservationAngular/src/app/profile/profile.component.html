@@ -1,0 +1,56 @@
+<head>
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
+  </head>
+  
+    <div class="box">
+      <div id="overlay">
+        <div class="image">
+          <div class="trick">
+  
+          </div>
+        </div>
+        <ul class="text" *ngFor="let ud of this.service.userList">{{ud.firstName}} {{ud.lastName}}</ul>
+        <div class="text1">Happy User</div>
+  
+  
+  
+  
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading " role="tab" id="headingOne">
+        <h4 class="panel-title ">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="" aria-controls="collapseOne">
+            <div class="title  btn btn-danger btn-outline btn-lg" *ngFor="let ud of this.service.userList">ABOUT {{ud.firstName}} {{ud.lastName}}</div>
+          </a>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body" *ngFor="let ud of this.service.userList">
+            <label >{{ud.dob | date:'dd-MM-yyyy'}}</label>
+            <br>
+            <label >{{ud.email}}</label>
+            <br>
+            <label >{{ud.contact}}</label>
+            <br>
+            <label >{{ud.address}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingTwo">
+        <h4 class="panel-title">
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <div class="title btn btn-danger btn-outline btn-lg">Recent trip</div>
+          </a>
+        </h4>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+        <div class="panel-body" *ngFor="let vd of service.viewseats">
+          <div *ngIf="vd.userid===this.userid"><h4>{{vd.source}}-----{{vd.destination}}</h4></div>
+        </div>
+      </div>
+    </div>
+    

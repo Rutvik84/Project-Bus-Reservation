@@ -1,0 +1,22 @@
+<div class="col-md-4 offset-4 mt-6 card" style="background:rgb(245, 243, 243)">
+    <div class="card-body">
+        <form #giveFeedbackForm="ngForm" (ngSubmit)="giveFeedbackFormMethod(giveFeedbackForm)">
+            <h1 class="h1 text-center">Give Feedback</h1>
+            <br>
+            <div class="form-group">
+                <label for="feedBackMessage" class="text-success">Would you like to say something?
+                </label>
+                <br>
+                <textarea #feedBackMessage="ngModel" ngModel name="feedBackMessage" id="feedBackMessage" class="form-control "
+                    required placeholder=""></textarea>
+                <div *ngIf="feedBackMessage.touched && feedBackMessage.invalid">
+                    <p class="text-danger"> This field is required</p>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-outline-info btn-block form-control"
+                [disabled]="giveFeedbackForm.invalid">Submit
+            </button>
+        </form>
+    </div>
+</div>

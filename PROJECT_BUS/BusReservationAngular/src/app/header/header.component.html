@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark bg-info ">
+    <a class="navbar-brand" routerLink="/">
+        <img src="../../assets/images/img1.png" alt="logo" height="43px">
+    </a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/"><b>Home</b> </a>
+            </li>
+           
+        </ul>  
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active" *ngIf="!isAdminLogin  && !isUserLogin">
+                <a class="nav-link" routerLink="register"><b>Register</b> </a>
+            </li>
+            <li class="nav-item active" *ngIf="!isAdminLogin && !isUserLogin">
+                <a class="nav-link" routerLink="login"><b>Login</b> </a>
+            </li>
+            <li class="nav-item active" *ngIf="!isAdminLogin && !isUserLogin">
+                <a class="nav-link" routerLink="AdminLogin"><b>AdminLogin</b> </a>
+            </li>
+
+            <!-- CUSTOMER PERFORMANCE -->
+            
+            <li class="nav-item active" *ngIf="isUserLogin">
+                <a class="nav-link" routerLink="bookTicket"><b>Book Ticket</b></a>
+            </li>
+            <li class="nav-item active" *ngIf="isUserLogin">
+                <a class="nav-link" routerLink="viewticket"><b>View Ticket</b></a>
+            </li>
+            <!-- <li class="nav-item active" *ngIf="isUserLogin">
+                <a class="nav-link" routerLink="cancelTicket"><b>Cancel Ticket</b></a>
+            </li> -->
+            <li class="nav-item active" *ngIf="isUserLogin">
+                <a class="nav-link" routerLink="feedback"><b>Feedback</b></a>
+            </li>
+            <li class="nav-item active" *ngIf="isUserLogin">
+                <a class="nav-link" routerLink="userProfile"><b>Profile</b></a>
+            </li>
+            <!-- <li class="nav-item active" *ngIf="isUserLogin">
+                <a class="nav-link" routerLink="userWallet"><b>Walllet</b></a>
+            </li> -->
+
+            <!-- ADMIN PERFORMANCE -->
+            
+            <li class="nav-item active" *ngIf="isAdminLogin">
+                <a class="nav-link" routerLink="addBus"><b>Add Bus</b> </a>
+            </li>
+            
+            <li class="nav-item active" *ngIf="isAdminLogin">
+                <a class="nav-link" routerLink="showAllBus"><b>Show All Buses</b> </a>
+            </li>
+            
+            <li class="nav-item active" *ngIf="isAdminLogin">
+                <a class="nav-link" routerLink="addBusTrip"><b>Add BusTrip</b> </a>
+            </li>
+            <li class="nav-item active" *ngIf="isAdminLogin">
+                <a class="nav-link" routerLink="viewfeedback"><b>Feedback</b> </a>
+            </li>
+            <li class="nav-item active" *ngIf="isAdminLogin">
+                <a class="nav-link" routerLink="showAllBusTrip"><b>Show All Bus Trip</b> </a>
+            </li>
+ 
+           
+
+            <li class="nav-item active" *ngIf="isAdminLogin  || isUserLogin">
+                <button type="button" class="btn btn-outline-danger" (click)="logout()"><b>Logout</b></button>
+            </li>
+        </ul>     
+        
+    </div>
+</nav>

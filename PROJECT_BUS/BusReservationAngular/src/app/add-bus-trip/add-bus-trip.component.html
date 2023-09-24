@@ -1,0 +1,89 @@
+<div class="col-md-4 offset-4 mt-6 card" style="background:rgb(240, 202, 202)">
+    <div class="card-body">
+    <form #createBustrip="ngForm" (ngSubmit)="addBusTrip(createBustrip)">
+        <h1 class="h1 text-center">Add Bus Trip</h1>
+
+        <div class="form-group">
+            <label for="busname" class="text-gray">Bus Name</label>
+            <select name="busId" class="form-control" #busId="ngModel" [(ngModel)]="service.bustrip.busId" required>
+                <option value="0">Please Select</option>
+                <option  *ngFor="let trip of service.busData" [ngValue]="trip.busId">{{ trip.busName }}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="busType" class="text-gray">Bus Type</label>
+            <select name="busId" class="form-control" #busId="ngModel" [(ngModel)]="service.bustrip.busId" required>
+                <option value="0">Please Select</option>
+                <option  *ngFor="let trip of service.busData" [ngValue]="trip.busId">{{ trip.busType }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="source" class="text-gray">Source</label>
+            <input type="text" #source="ngModel" ngModel name="source" id="source" class="form-control" required
+                placeholder="Enter Source">
+            <div *ngIf="source.touched && source.invalid">
+                <p class="text-danger"> This field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="destination" class="text-gray">Destination</label>
+            <input type="text" #destination="ngModel" ngModel name="destination" id="destination" class="form-control" required
+                placeholder="Enter Destination">
+            <div *ngIf="destination.touched && destination.invalid">
+                <p class="text-danger"> This field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <label for="isActive" class="text-gray">Active Buses </label>
+            <input type="number" #isActive="ngModel" ngModel name="isActive" id="isActive" class="form-control" required
+                placeholder="Active Buses">
+            <div *ngIf="isActive.touched && isActive.invalid">
+                <p class="text-danger"> This field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="fromDatetime" class="text-gray">Departure Date</label>
+            <input type="date" #fromDatetime="ngModel" ngModel name="fromDatetime" id="fromDatetime" class="form-control" required
+                placeholder="Enter Departure Date">
+            <div *ngIf="fromDatetime.touched && fromDatetime.invalid">
+                <p class="text-danger"> This field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="toDatetime" class="text-gray">Arrival Date</label>
+            <input type="date" #toDatetime="ngModel" ngModel name="toDatetime" id="toDatetime" class="form-control" required
+                placeholder="Enter Arrival Date">
+            <div *ngIf="toDatetime.touched && toDatetime.invalid">
+                <p class="text-danger"> This field is required</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="availableSeats" class="text-gray">Availabe Seats</label>
+            <input type="number" #availableSeats="ngModel" ngModel name="availableSeats" id="availableSeats" class="form-control" required
+                placeholder="Enter Available Seats">
+            <div *ngIf="availableSeats.touched && availableSeats.invalid">
+                <p class="text-danger"> This field is required</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Cost" class="text-gray">Cost</label>
+            <input type="number" #Cost="ngModel" ngModel name="Cost" id="Cost" class="form-control" required
+                placeholder="Enter Cost">
+            <div *ngIf="Cost.touched && Cost.invalid">
+                <p class="text-danger"> This field is required</p>
+            </div>
+        </div>
+        <br>
+
+        <button type="submit" class="btn btn-primary float-right" [disabled]="createBustrip.invalid">Add Bus Trip</button>
+     
+
+    </form>
+    </div>
+
+</div>

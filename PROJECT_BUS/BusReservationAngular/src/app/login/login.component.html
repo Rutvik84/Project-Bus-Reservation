@@ -1,0 +1,35 @@
+
+<style>
+    .card{
+        margin-top: 40px;
+    }
+</style>
+
+
+<div class="col-md-4 offset-4 mt-6 card" style="background:rgb(227, 192, 192)">
+    <div class="card-body">
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+            <h1 class="h1 text-center">LOGIN</h1>
+            <div class="form-group">
+                <label for="UserName" class="text-indigo">User Name</label>
+                <input type="email" #UserName="ngModel" ngModel name="UserName" id="UserName" class="form-control"
+                    placeholder="Enter User Email-Id">
+                <div *ngIf="UserName.touched && UserName.invalid">
+                    <p class="alert alert-danger"> *This field is required</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="Password" class="text-indigp">User Password</label>
+                <input type="password" #Password="ngModel" ngModel name="Password" id="Password"
+                    class="form-control" required placeholder="Enter User Password">
+                <div *ngIf="Password.touched && Password.invalid">
+                    <p class="alert alert-danger"> This field is required</p>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-outline-dark btn-block form-control" [disabled]="loginForm.invalid"><b>Login</b>
+            </button>
+        </form>
+    </div>
+</div>

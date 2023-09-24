@@ -1,0 +1,50 @@
+<input #checkbox1 type="checkbox" name="toggle" id="toggle">
+<label for="toggle"></label>
+<div class="container">
+</div>
+<div class="formAdd">
+    <form autocomplete="off" #myForm="ngForm" (ngSubmit)="myForm.form.valid && editBus(myForm)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <input type="hidden" name="busId" #busId="ngModel" [(ngModel)]="service.busdetails.busId">
+                    
+                        <label for="busname" class="float-left"> Bus Name</label>
+                        <div *ngIf="busName.invalid && (busName.touched || busName.dirty)" class="float-right">
+                            <p class="text-danger">Required</p>
+                        </div>
+                        <input type="text" name="busName" class="form-control" placeholder="Enter Bus Name" #busName="ngModel" [(ngModel)]="service.busdetails.busName" required>
+                </div>  
+                <div class="col-md-3">
+                    <label for="busType" class="float-left">Bus Type</label>
+                    <div *ngIf="busType.invalid && (busType.touched || busType.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="text" name="busType" class="form-control" placeholder="Enter busType" #busType="ngModel" [(ngModel)]="service.busdetails.busType" required>
+                </div>
+            </div>
+            <div class="row">  
+                <div class="col-md-3">
+                    <label for="totalSeats" class="float-left">Total Seats</label>
+                    <div *ngIf="totalSeats.invalid && (totalSeats.touched || totalSeats.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="text" name="totalSeats" class="form-control" placeholder="Enter TotalSeats" #totalSeats="ngModel" [(ngModel)]="service.busdetails.totalSeats" required>
+                </div>  
+            </div>   
+ <br>
+ 
+            <div class="row">
+                <div class="col-md-8"></div>
+                <div class="col-md-2">
+                    <button type="submit" [disabled]="busId.value===0" class="btn btn-success btn-block" (onClick)="hideshowSlide()">Save</button>
+                </div>
+                <div class="col-md-2">
+                    <button type="reset" class="btn btn-danger btn-block">Cancel</button>
+                </div>
+            </div>
+ 
+ 
+        </div>
+    </form>    
+ </div>
